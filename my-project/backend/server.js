@@ -14,8 +14,9 @@ const app = express();
 // Daftar alamat frontend yang diizinkan
 const allowedOrigins = [
     'http://localhost:5173',
-    process.env.FRONTEND_URL,
-].filter(Boolean);
+    'https://web-daftar-harga.vercel.app',
+    'https://web-daftar-harga-4t6jfqkn6-mirzahafizhs-projects.vercel.app',
+];
 
 // Middleware CORS
 app.use(cors({
