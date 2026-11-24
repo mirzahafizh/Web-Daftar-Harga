@@ -1,3 +1,5 @@
+
+const Sequelize = require('sequelize');
 const mysql2 = require('mysql2');
 
 require('dotenv').config();
@@ -10,8 +12,6 @@ const sequelize = new Sequelize(
         host: process.env.DB_HOST,
         port: Number(process.env.DB_PORT || 3306),
         dialect: 'mysql',
-
-        // Memuat driver MySQL secara eksplisit
         dialectModule: mysql2,
 
         logging: false,
