@@ -1,5 +1,5 @@
+const mysql2 = require('mysql2');
 
-const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
 const sequelize = new Sequelize(
@@ -11,6 +11,9 @@ const sequelize = new Sequelize(
         port: Number(process.env.DB_PORT || 3306),
         dialect: 'mysql',
 
+        // Memuat driver MySQL secara eksplisit
+        dialectModule: mysql2,
+
         logging: false,
 
         define: {
@@ -18,7 +21,6 @@ const sequelize = new Sequelize(
             underscored: true,
         },
 
-        // Pool lebih ringan untuk Vercel Serverless
         pool: {
             max: 2,
             min: 0,
@@ -27,7 +29,6 @@ const sequelize = new Sequelize(
             evict: 1000,
         },
 
-        // Batas waktu koneksi MySQL
         dialectOptions: {
             connectTimeout: 20000,
         },
