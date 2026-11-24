@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://web-daftar-harga-1v7t-8slqtnne8-mirzahafizhs-projects.vercel.app/api',
+    baseURL: 'https://web-daftar-harga-1v7t.vercel.app/',
 });
 
 api.interceptors.request.use((config) => {
