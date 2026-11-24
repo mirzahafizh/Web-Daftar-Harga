@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://web-daftar-harga-1v7t-8slqtnne8-mirzahafizhs-projects.vercel.app/api',
+    baseURL: 'https://web-daftar-harga-1v7t-git-main-mirzahafizhs-projects.vercel.app/api',
 });
 
 api.interceptors.request.use((config) => {
@@ -12,15 +12,10 @@ api.interceptors.request.use((config) => {
         config.headers.Authorization = `Bearer ${token}`;
     }
 
-    // Pastikan upload FormData menggunakan multipart/form-data
-    // dengan boundary yang dibuat otomatis oleh Axios.
+    // Upload FormData: biarkan Axios membuat boundary otomatis.
     if (config.data instanceof FormData) {
-        if (typeof config.headers.delete === 'function') {
-            config.headers.delete('Content-Type');
-        } else {
-            delete config.headers['Content-Type'];
-            delete config.headers['content-type'];
-        }
+        delete config.headers['Content-Type'];
+        delete config.headers['content-type'];
     } else {
         config.headers['Content-Type'] = 'application/json';
     }
